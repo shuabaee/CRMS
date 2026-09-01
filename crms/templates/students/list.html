@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student List | CIT-U Student Management</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            color: #1f2937;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #003b73, #005baa);
+            color: white;
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #f5c542;
+            color: #003b73;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            border: 3px solid white;
+        }
+
+        .brand h1 {
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .brand p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .school-name {
+            text-align: right;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        /* Main container */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .page-header h2 {
+            color: #003b73;
+            font-size: 28px;
+        }
+
+        .page-header p {
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        
+
+        
+
+        /* Student card */
+        .student-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #005baa;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+            transition: 0.2s;
+        }
+
+        .student-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .student-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #003b73;
+            color: #f5c542;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .student-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #003b73;
+        }
+
+        .student-id {
+            color: #6b7280;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .view-button {
+            text-decoration: none;
+            color: #005baa;
+            border: 1px solid #005baa;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .view-button:hover {
+            background: #005baa;
+            color: white;
+        }
+
+        /* Empty state */
+        .empty {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+        }
+
+        .empty-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .empty h3 {
+            color: #003b73;
+            margin-bottom: 8px;
+        }
+
+        .empty p {
+            color: #6b7280;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            background: #003b73;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #f5c542;
+            font-weight: bold;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            .header {
+                padding: 20px;
+            }
+
+            .school-name {
+                display: none;
+            }
+
+            .container {
+                width: 92%;
+                margin: 25px auto;
+            }
+
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .student-card {
+                padding: 15px;
+            }
+
+            .view-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="brand">
+
+            <div class="logo">
+                CIT
+            </div>
+
+            <div>
+                <h1>Student Management System</h1>
+                <p>Cebu Institute of Technology – University</p>
+            </div>
+
+        </div>
+
+        <div class="school-name">
+            Student Information Portal
+        </div>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <div class="page-header">
+
+            <div>
+                <h2>Student List</h2>
+                <p>Manage and view registered students.</p>
+            </div>
+
+            
+
+        </div>
+
+
+        <!-- Student List -->
+        {% for student in students %}
+
+            <div class="student-card">
+
+                <div class="student-info">
+
+                    <div class="student-avatar">
+                        {{ student.first_name|first|upper }}
+                    </div>
+
+                    <div>
+
+                        <div class="student-name">
+                            {{ student.first_name }} {{ student.last_name }}
+                        </div>
+
+                        <div class="student-id">
+                            Student ID: {{ student.student_id }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="#" class="view-button">
+                    View
+                </a>
+
+            </div>
+
+        {% empty %}
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🎓
+                </div>
+
+                <h3>No Students Found</h3>
+
+                <p>
+                    There are currently no students registered in the system.
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 <span>Cebu Institute of Technology – University</span>
+        · Student Management System
+    </footer>
+
+</body>
+</html>
